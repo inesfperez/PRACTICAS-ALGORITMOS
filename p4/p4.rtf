@@ -1,0 +1,112 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+ GRAFOS\
+\
+                                                                                        In\'e9s Faro P\'e9rez\
+                                                                                   13/12/19\
+\
+=======================================================================================================\
+\
+- INTRODUCI\'d3N\
+\
+    Os obxectivos desta pr\'e1ctica son fundamentalmente dous: implantar o algoritmo de Dijkstra e demostrar \
+    empiricamente a complexidade do algoritmo para o c\'e1lculo de distancias m\'ednimas con grafos completos \
+    non dirixidos mediante matrices obtidas de xeito aleatorio. \
+\
+    Para facer o estudo de maneira m\'e1is rigurosa, realizaremos as medici\'f3ns de tempos sobre matrices\
+    de diferentes tama\'f1os, sendo a m\'e1is pequena de 10x10 elementos e a m\'e1is grande de 1280x1280 cun in-\
+    cremento entre cada un deles de 2.\
+\
+    Tam\'e9n crearemos varios tests que nos axuden a visualizar a correcta implementaci\'f3n do c\'f3digo que\
+    nos permite traballar cos grafos e as s\'faas distancias.\
+\
+\
+- DATOS\
+\
+NOTA!-> Cando o tempo obtido para unha operaci\'f3n \'e9 menor a 500 \'b5s, obtemos o valor de t(n) repetindo a\
+    operaci\'f3n 1000 veces e calculando despois unha media do tempo. Compre destacar que para realizar\
+    este c\'e1lculo descontamos o tempo investido en inicializar os vectores en todas as repetici\'f3ns.\
+    Os casos nos que isto ocorre est\'e1n indicados cun asterisco nas t\'e1boas.\
+\
+    Para a an\'e1lise dos tempos de execuci\'f3n dos algoritmos temos que definir varias cotas: a subes-\
+    timada, a exacta e a sobrestimada. A cota subestimada \'e9 aquela funci\'f3n que aproxima o tempo de\
+    execuci\'f3n dun algoritmo para n elementos por debaixo do valor real, \'f3 contrario do que pasa coa \
+    sobrestimada, xa que esta aproxima t(n) por enriba do tempo do algoritmo. Por \'faltimo, dicir que \
+    a cota exacta \'e9 aquela que aproxima de maneira fiel o tempo de execuci\'f3n dun algoritmo para unha\
+    entrada de n elementos.\
+\
+    Resultado disto, o resultado de dividir t(n) entre as cotas tende a infinito, cero ou constante\
+    para as cotas subestimada, sobrestimada e exacta respectivamente.\
+\
+    No que procede, as medici\'f3ns de tempo foron realizadas en microsegundos.\
+\
+\
+    Ordenaci\'f3n Dijkstra con inicializaci\'f3n aleatoria\
+\
+        n             t(n)              t(n)/n^2.7            t(n)/n^2.85             t(n)/n^3.0\
+    *    10       11.986100             0.02391541             0.01693082             0.01198610\
+    *    20       88.227800             0.02709096             0.01728502             0.01102847\
+         40      641.000000             0.03028978             0.01741755             0.01001563\
+         80     3993.000000             0.02903731             0.01504849             0.00779883\
+        160    26974.000000             0.03018710            #0.01409949#            0.00658545\
+        320   190892.000000             0.03287629            #0.01383918#            0.00582556\
+        640  1534020.000000             0.04065791             0.01542475             0.00585182\
+       1280 14419554.000000             0.05881457            #0.02010960#            0.00687578\
+    \
+\
+    \'b7Cota subestimada:  f(n) = n^2.7\
+    \'b7Cota exacta:       f(n) = n^2.85 ==> t(n)/n^2.85 tende a 0.016\
+    \'b7Cota sobrestimada: f(n) = n^3.00\
+\
+\
+    Polo tanto, vistos os valores aos que tende cada un dos t(n)/cotas, queda demostrado que esta\
+    operaci\'f3n se realiza cunha complexidade de n^2.85 -> O(n^2.85).\
+\
+    Cabe destacar que todos aqueles valores obtidos que se desv\'edan do esperado non se tiveron en\
+    conta, indicando tales casos cun # nas t\'e1boas. Isto pode ocorrer por m\'faltiples motivos,sendo un     \
+    deles que a m\'e1quina nas primeiras execuci\'f3ns non utiliza toda a s\'faa potencia.\
+\
+\
+- M\'c1QUINA\
+\
+    \'b7MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports) \
+    \'b7Procesador 2,3 GHz Intel Core i5 \
+    \'b7Memoria 8 GB 2133 MHz LPDDR3 \
+    \'b7Versi\'f3n macOS: High Sierra (10.13.6)\
+    \
+\
+- CONCLUSI\'d3NS\
+\
+    Imos analizar as conclusi\'f3ns que sacamos da an\'e1lise anteriormente realizada:\
+\
+    A complexidade obtida empiricamente (O(n^2.85)) para esta implementaci\'f3n do algoritmo de Dijkstra \
+    dista moito da complexidade te\'f3rica do algoritmo (O(n^2)). A explicaci\'f3n disto \'e9 que en vez de calcular \
+    os cami\'f1os m\'ednimos desde un nodo aos demais, esta implementaci\'f3n calcula as distancias m\'ednimas desde\
+    todos os nodos a todos os outros, polo tanto a complexidade aproximada \'e9 O(nxn^2).\
+    \
+    Os tempos de execuci\'f3n medran moi r\'e1pido porque tam\'e9n o fan os elementos da matriz, posto que \'e9 un\
+    vector de dimensi\'f3n NxN. \
+    \
+    As medici\'f3ns a partir dos 800x800 elementos son inservibles porque o sistema ten que ir a memoria a\
+    buscar os datos, polo que perde moito tempo na operaci\'f3n.\
+\
+    A primeira medici\'f3n \'e9 "lenta" porque hai que inicializar o stack.\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+    \
+\
+    }

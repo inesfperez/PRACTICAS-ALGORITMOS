@@ -1,0 +1,169 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+MONT\'cdCULOS\
+\
+										In\'e9s Faro P\'e9rez\
+											 21/11/19\
+\
+=======================================================================================================\
+\
+- INTRODUCI\'d3N\
+\
+	Os obxectivos desta pr\'e1ctica son fundamentalmente dous: demostrar emp\'edricamente que a creaci\'f3n \
+	dun mont\'edculo a partir dun vector calquera con n elementos se executa en tempo O(n) e calcular\
+	tam\'e9n de maneira emp\'edrica a complexidade do algoritmo de ordenaci\'f3n por mont\'edculos para tres\
+	situaci\'f3ns iniciais: cando o vector est\'e1 ordenado en orde ascendente, cando o vector xa est\'e1\
+	ordenado en orde descendente e cando o vector est\'e1 desordenado.\
+\
+	Para facer o estudo de maneira m\'e1is rigurosa, realizaremos as medici\'f3ns de tempos sobre vectores\
+	de diferentes tama\'f1os, sendo o m\'e1is pequeno de 500 elementos e o m\'e1is grande de 32000.\
+\
+	Tam\'e9n crearemos varios tests que nos axuden a visualizar a correcta implementaci\'f3n do c\'f3digo que\
+	nos permite traballar cos mont\'edculos. \
+\
+\
+- DATOS\
+\
+NOTA! -> Cando o tempo obtido para unha operaci\'f3n \'e9 menor a 500 \'b5s, obtemos o valor de t(n) repetindo a\
+	 operaci\'f3n 1000 veces e calculando despois unha media do tempo. Compre destacar que para realizar\
+	 este c\'e1lculo descontamos o tempo investido en inicializar os vectores en todas as repetici\'f3ns.\
+	 Os casos nos que isto ocorre est\'e1n indicados cun asterisco nas t\'e1boas.\
+\
+\
+	Para a an\'e1lise dos tempos de execuci\'f3n dos algoritmos temos que definir varias cotas: a subes-\
+	timada, a exacta e a sobrestimada. Ao ter implementado dous algoritmos, e con ordenaci\'f3n\
+	orixinal variable estes empregan diferentes cotas dependendo do caso concreto, polo que tere-\
+	mos que definilas para cada un deles.\
+\
+	A cota subestimada \'e9 aquela funci\'f3n que aproxima o tempo de execuci\'f3n dun algoritmo para n ele-\
+	mentos por debaixo do valor real, \'f3 contrario do que pasa coa sobrestimada, xa que esta aproxima 	 \
+	t(n) por enriba do tempo do algoritmo. Por \'faltimo, dicir que a cota exacta \'e9 aquela que aproxima \
+	de maneira fiel o tempo de execuci\'f3n dun algoritmo para unha entrada de n elementos.\
+\
+	Resultado disto, o resultado de dividir t(n) entre as cotas tende a infinito, cero ou constante\
+	para as cotas subestimada, sobre-estimada e exacta respectivamente.\
+\
+	No que procede, as medici\'f3ns de tempo foron realizadas en microsegundos.\
+\
+\
+\
+	Primeiro, imos demostrar que a creaci\'f3n dun mont\'edculo a partir dun vector calquera con n elemen-\
+	tos se executa en tempo O(n).\
+\
+	\
+	Crear mont\'edculo con inicializaci\'f3n descendente\
+\
+	    n            t(n)            t(n)/n^0.8                t(n)/n                t(n)/n^2.2\
+	*   500        6.682000		 0.04631594		#0.01336400#		 0.00385605\
+	*  1000       11.381000		 0.04530858		 0.01138100		 0.00285878\
+	*  2000       23.492000		 0.05371505		 0.01174600		 0.00256853\
+	*  4000       46.037000		 0.06045873		 0.01150925		 0.00219096\
+	*  8000       93.215000		 0.07030947		 0.01165188		 0.00193098\
+	* 16000      184.286000		 0.07983556		 0.01151788		 0.00166168\
+	* 32000      373.428000		 0.09291523		 0.01166962		 0.00146564\
+\
+\
+	-Cota subestimada: 	f(n) = n^0.8\
+	-Cota exacta: 		f(n) = n	 ==> t(n)/n tende a 0.0115\
+	-Cota sobrestimada:	f(n) = n^1.2\
+\
+	Polo tanto, vistos os valores aos que tende cada un dos t(n)/cotas, queda demostrado que esta\
+	operaci\'f3n se realiza en tempo constante.\
+\
+\
+\
+	Agora procedemos ao c\'e1lculo da complexidade do algoritmo de ordenaci\'f3n por mont\'edculos para tres\
+	situaci\'f3ns iniciais: cando o vector est\'e1 ordenado en orde ascendente, cando o vector xa est\'e1\
+	ordenado en orde descendente e cando o vector est\'e1 desordenado.\
+\
+	Odenaci\'f3n mont\'edculos con inicializaci\'f3n ascendente\
+\
+	    n            t(n)              t(n)/n               t(n)/n*log(n)            t(n)/n^1.4\
+	*   500       37.160000		 0.07432000		#0.01195892#		 0.00618754\
+	*  1000       87.703000		 0.08770300		 0.01269631		 0.00553369\
+	*  2000      207.266000		 0.10363300		 0.01363430		 0.00495548\
+	*  4000      443.925000		 0.11098125		 0.01338083		 0.00402185\
+	   8000      953.000000		 0.11912500		 0.01325497		 0.00327165\
+	  16000     2014.000000		 0.12587500		 0.01300315		 0.00261994\
+	  32000     4220.000000		 0.13187500		 0.01271269		 0.00208019\
+\
+	\'b7Cota subestimada: 	f(n) = n\
+	\'b7Cota exacta: 		f(n) = n^n*log(n) ==> t(n)/(n*log(n)) tende a 0.0130\
+	\'b7Cota sobrestimada:	f(n) = n^1.4\
+\
+	Polo tanto, vistos os valores aos que tende cada un dos t(n)/cotas, queda demostrado que esta\
+	operaci\'f3n se realiza en tempo logar\'edtmico. Isto \'e9: O(nlogn).\
+\
+\
+	Odenaci\'f3n mont\'edculos con inicializaci\'f3n descendente\
+\
+	    n            t(n)              t(n)/n               t(n)/n*log(n)            t(n)/n^1.4\
+	*   500       38.083000		 0.07616600		#0.01225596#		 0.00634122\
+	*  1000       92.683000		 0.09268300		 0.01341724		 0.00584790\
+	*  2000      213.868000		 0.10693400		#0.01406859#		 0.00511333\
+	*  4000      462.055000		 0.11551375		 0.01392730		 0.00418610\
+	   8000     1003.000000		 0.12537500		 0.01395040		 0.00344330\
+	  16000     2115.000000		 0.13218750		 0.01365525		 0.00275133\
+	  32000     4251.000000		 0.13284375		 0.01280608		 0.00209547\
+\
+	\'b7Cota subestimada: 	f(n) = n\
+	\'b7Cota exacta: 		f(n) = n^n*log(n) ==> t(n)/(n*log(n)) tende a 0.0136\
+	\'b7Cota sobrestimada:	f(n) = n^1.4\
+\
+	Polo tanto, vistos os valores aos que tende cada un dos t(n)/cotas, queda demostrado que esta\
+	operaci\'f3n se realiza en tempo logar\'edtmico. Isto \'e9: O(nlogn).\
+\
+	\
+	Odenaci\'f3n mont\'edculos con inicializaci\'f3n aleatoria\
+\
+	    n            t(n)              t(n)/n               t(n)/n*log(n)            t(n)/n^1.4\
+	*   500       55.240000		 0.11048000		 0.01777747		 0.00919805\
+	*  1000      122.335000		 0.12233500		 0.01770981		 0.00771882\
+	*  2000      262.526000		 0.13126300		 0.01726940		 0.00627668\
+	   4000      601.000000		 0.15025000		 0.01811540		 0.00544491\
+	   8000     1247.000000		 0.15587500		 0.01734412		 0.00428095\
+	  16000     2612.000000		 0.16325000		#0.01686407#		 0.00339786\
+	  32000     5789.000000		 0.18090625		 0.01743928		 0.00285360\
+\
+	\'b7Cota subestimada: 	f(n) = n\
+	\'b7Cota exacta: 		f(n) = n^n*log(n) ==> t(n)/(n*log(n)) tende a 0.0174\
+	\'b7Cota sobrestimada:	f(n) = n^1.4\
+\
+\
+	Polo tanto, vistos os valores aos que tende cada un dos t(n)/cotas, queda demostrado que esta\
+	operaci\'f3n se realiza en tempo logar\'edtmico. Isto \'e9: O(nlogn).\
+\
+	Cabe destacar que todos aqueles valores obtidos que se desv\'edan do esperado non se tiveron en\
+	conta, indicando tales casos cun # nas t\'e1boas. Isto pode ocorrer por m\'faltiples motivos,sendo un 	\
+	deles que a m\'e1quina nas primeiras execuci\'f3ns non utiliza toda a s\'faa potencia.\
+\
+\
+- M\'c1QUINA\
+\
+	-MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports) \
+	-Procesador 2,3 GHz Intel Core i5 \
+	-Memoria 8 GB 2133 MHz LPDDR3 \
+	\
+\
+- CONCLUSI\'d3NS\
+\
+	Imos analizar as conclusi\'f3ns que sacamos da an\'e1lise anteriormente realizada:\
+\
+	A creaci\'f3n de mont\'edculos ten unha complexidade lineal, para todos os casos os tempos da opera-\
+	ci\'f3n crearMonticulo() dependen li\'f1almente do n\'famero de elementos.\
+	\
+	Respecto \'e1 ordenaci\'f3n de mont\'edculos, unha vez realizadas as an\'e1lises necesarias e observando \
+        que resulta indiferente a forma na que est\'e1n ordenados inicialmente os vectores, podemos afir-\
+        mar que para todos os casos a complexidade \'e9 a mesma, logar\'edtmica, como xa se demostrou nas \
+        t\'e1boas anteriores. Tense en conta para isto que o n\'famero de elementos ser\'e1 n e a profundidade \
+        do mont\'edculo log(n), polo que resulta a xa comentada complexidade O(n*log(n)). \
+\
+\
+	}

@@ -1,0 +1,109 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Introduci\'f3n\
+Imos realizar un programa que calcula a suma da subsecuencia m\'e1xima dun vector implementando dous algoritmos diferentes. O primeiro deles \'e9 cuadr\'e1tico, mentres que o segundo \'e9 lineal. Ademais, creamos dous tests, de xeito que un comprobe a implementaci\'f3n dos algoritmos con valores xa definidos e o outro con valores aleatorios.\
+A continuaci\'f3n mediremos os tempos de execuci\'f3n aplicando os algoritmos a uns vectores de n valores aleatorios, incrementando n en cada medida. Por \'faltimo, realizamos unha comprobaci\'f3n emp\'edrica para as cota subestimada, a exacta e a sobre-estimada na que utilizaremos os datos anteriormente obtidos.\
+Datos\
+Para a an\'e1lise dos tempos de execuci\'f3n dos algoritmos temos que definir varias cotas: a subestimada, a exacta e a sobre-estimada. Ao ter implementado dous algoritmos, estes empregan cotas diferentes polo que teremos que definilas para cada un deles.\
+A cota subestimada \'e9 aquela funci\'f3n que se aproxima por debaixo da funci\'f3n do algoritmo e que polo tanto tende a infinito, \'f3 contrario do que pasa coa sobre- estimada, posto que esta se aproxima por enriba e tende a cero. Por \'faltimo, a cota exacta \'e9 aquela que aproxima o seu valor ao do algoritmo.\
+2\
+                                    Algoritmo 1: Podemos afirmar que este algoritmo \'e9 de tipo cuadr\'e1tico, xa que a cota exacta segue esta forma.\
+Empregamos as cotas: f(n) = n^1.8, f(n) = n^2 e f(n) = n^2.2.\
+Algoritmo 2: Nesta ocasi\'f3n, vemos que o algoritmo segue a forma lineal da s\'faa cota\
+exacta.\
+Empregamos as cotas: f(n) = n^0.8, f(n) = n e f(n) = n^1.2.\
+Para o primeiro algoritmo a constante resultado da operaci\'f3n t(n)/f(n) para a funci\'f3n f(n) da cota exacta ten un valor de 0.001, sendo este valor de 0.003 para o segundo algoritmo. En ambos casos se producen valores an\'f3malos, isto \'e9, valores que se distancian de maneira moi significativa dos valores anteriormente acotados. Isto \'e9 debido a que a m\'e1quina non utiliza todos os recursos nas primeiras execuci\'f3ns e polo tanto intentamos non considerar esas medici\'f3ns.\
+As medidas dos tempo real\'edzanse en microsegundos.\
+  n\
+    T(n) T(n)/n1\'928 T(n)/n2\
+  T(n)/n2\'922\
+  500\
+  270.996000\
+  0.003757\
+  0.001084\
+  0.000313\
+  1000\
+   1060.000000\
+   0.004220\
+   0.001060\
+   0.000266\
+  2000\
+  4196.000000\
+  0.004797\
+  0.001049\
+  0.000229\
+  4000\
+ 16661.000000\
+ 0.005470\
+ 0.001041\
+ 0.000198\
+  8000\
+  68003.000000\
+  0.006412\
+  0.001063\
+  0.000176\
+  16000\
+   269264.000000\
+   0.007291\
+   0.001052\
+   0.000152\
+  32000\
+  1076505.000000\
+  0.008370\
+  0.001051\
+  0.000132\
+   n\
+    T(n) T(n)/n0\'928 T(n)/n1\
+  T(n)/n1\'922\
+  500\
+  1.801000\
+  0.012484\
+  0.003602\
+  0.001039\
+  1000\
+  3.201000\
+  0.012743\
+  0.003201\
+  0.000804\
+  2000\
+   5.879000\
+   0.013442\
+   0.002939\
+   0.000643\
+  4000\
+  11.013000\
+  0.014463\
+  0.002753\
+  0.000524\
+  8000\
+ 25.061000\
+ 0.018903\
+ 0.003133\
+ 0.000524\
+  16000\
+   41.431000\
+   0.017949\
+   0.002589\
+   0.000374\
+  32000\
+  81.629000\
+  0.020311\
+  0.002551\
+  0.000320\
+ Os tempos en negri\'f1a foron medidos en 1000 iteraci\'f3ns posto que eran menores de 500 microseg.\
+3\
+\
+M\'e1quina\
+\'95 MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports)\
+\'95 Procesador 2,3 GHz Intel Core i5\
+\'95 Memoria 8 GB 2133 MHz LPDDR3 \'95\
+Conclusi\'f3ns\
+Na primeira parte da pr\'e1ctica observamos que os dous algoritmos son equivalentes a efectos de resultados obtidos, xa que devolven os mesmos valores en ambos tests.\
+Na segunda parte da pr\'e1ctica, referida ao c\'e1lculo das funci\'f3ns, puidemos observar que o primeiro algoritmo \'e9 cuadr\'e1tico, mentres que o segundo \'e9 lineal, o que significa que o segundo \'e9 moito m\'e1is r\'e1pido que o primeiro realizando a mesma tarefa.\
+Consecuencia disto \'faltimo, vemos que para o primeiro algoritmo os tempos de execuci\'f3n medran de maneira exponencial cando o n\'famero de elementos dos vectores aumenta, mentres que co segundo algoritmo este aumento dos tempos segue unha progresi\'f3n lineal.\
+4}

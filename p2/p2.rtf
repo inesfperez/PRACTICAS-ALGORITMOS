@@ -1,0 +1,176 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+	\
+				ORDENACI\'d3N POR INSERCI\'d3N E ORDENACI\'d3N SHELL\
+\
+										In\'e9s Faro P\'e9rez									    			 28/10/19\
+\
+=======================================================================================================\
+\
+- INTRODUCI\'d3N\
+\
+	Imos realizar un programa que ordena vectores de n\'fameros implementando dous algoritmos de or-\
+	denaci\'f3n diferentes: ordenaci\'f3n por inserci\'f3n e ordenaci\'f3n shell. En ambos casos analizaremos\
+	a s\'faa complexidade de maneira emp\'edrica, realizando unha comprobaci\'f3n para as cotas subestima-\
+	da, exacta e sobreestimada. Utilizaremos para tal fin os tempos obtidos ao ordenar vectores \
+	orixinalmente (des)ordenados de maneira ascendente, descendente e aleatoria. Estes vectores, \
+	ademais, ser\'e1n de diferentes tama\'f1os, variando entre os 500 elementos e os 32000.\
+\
+ 	Tam\'e9n creamos 2 tests que nos axuden a visualizar a correcta implementaci\'f3n dos algoritmos. \
+\
+\
+- DATOS\
+\
+NOTA! -> Os tempos con asterisco foron medidos en 1000 iteraci\'f3ns posto que eran menores de 500 \'b5s.\
+\
+	Para a an\'e1lise dos tempos de execuci\'f3n dos algoritmos temos que definir varias cotas: a subes-\
+	timada, a exacta e a sobre-estimada. Ao ter implementado dous algoritmos, e con ordenaci\'f3n\
+	orixinal variable estes empregan diferentes cotas dependendo do caso concreto, polo que tere-\
+	mos que definilas para cada un deles.\
+\
+	A cota subestimada \'e9 aquela funci\'f3n que se aproxima por debaixo da funci\'f3n do algoritmo e que\
+	polo tanto tende a infinito, \'f3 contrario do que pasa coa sobrestimada, posto que esta se\
+	aproxima por enriba e tende a cero. Por \'faltimo, a cota exacta \'e9 aquela que aproxima o seu\
+	valor ao do algoritmo.\
+\
+	As medici\'f3ns de tempo real\'edzanse en microsegundos.\
+\
+	Odenaci\'f3n por inserci\'f3n con inicializaci\'f3n aleatorio\
+	n		 t(n)		 t(n)/n^1.80		t(n)/n^2.00		t(n)/n^2.20\
+	*500		 155.006000	 0.00214883		 0.00062002		 0.00017890\
+	1000		 570.000000	 0.00226921		 0.00057000		 0.00014318\
+	2000		 2281.000000	 0.00260778		 0.00057025		 0.00012470\
+	4000		 9191.000000	 0.00301755		 0.00057444		 0.00010935\
+	8000		 37836.000000	 0.00356733		 0.00059119		 0.00009797\
+	16000		 146019.000000	 0.00395361		 0.00057039		 0.00008229\
+	32000		 574531.000000	 0.00446728		 0.00056107		 0.00007047\
+\
+	\'b7 Cota subestimada: 	f(n) = n^1.80\
+	\'b7 Cota exacta: 		f(n) = n^2.00 ==> t(n)/(n^2.00) tende a 0.000570\
+	\'b7 Cota sobrestimada:	f(n) = n^2.20\
+\
+	Para o algoritmo de ordenaci\'f3n por inserci\'f3n cando o vector a ordenar presenta inicializaci\'f3n\
+	aleatoria a complexidade \'e9 cuad?atica -> O(n^2)\
+\
+	Odenaci\'f3n por inserci\'f3n con inicializaci\'f3n descendente\
+	n		 t(n)		 t(n)/n^1.80		t(n)/n^2.00		t(n)/n^2.20\
+	*500		 284.491000	 0.00394387		 0.00113796		 0.00032835\
+	1000		 1129.000000	 0.00449463		 0.00112900		 0.00028359\
+	2000		 4539.000000	 0.00518927		 0.00113475		 0.00024814\
+	4000		 17994.000000	 0.00590772		 0.00112462		 0.00021409\
+	8000		 73638.000000	 0.00694289		 0.00115059		 0.00019068\
+	16000		 291040.000000	 0.00788019		 0.00113688		 0.00016402\
+	32000		 1157160.000000	 0.00899753		 0.00113004		 0.00014193\
+\
+	\'b7 Cota subestimada: 	f(n) = n^1.80\
+	\'b7 Cota exacta: 		f(n) = n^2.00 ==> t(n)/(n^2.00) tende a 0.00113\
+	\'b7 Cota sobrestimada:	f(n) = n^2.20\
+\
+	Para o algoritmo de ordenaci\'f3n por inserci\'f3n cando o vector a ordenar presenta inicializaci\'f3n\
+	descendente a complexidade \'e9 cuad?atica -> O(n^2)\
+\
+	Odenaci\'f3n por inserci\'f3n con inicializaci\'f3n ascendente\
+	n		 t(n)		 t(n)/n^0.80		t(n)/n^1.00		t(n)/n^1.20\
+	*500		 1.647000	 0.01141610		 0.00329400		 0.00095045\
+	*1000		 3.260000	 0.01297829		 0.00326000		 0.00081887\
+	*2000		 6.351000	 0.01452172		 0.00317550		 0.00069439\
+	*4000		 13.059000	 0.01714991		 0.00326475		 0.00062150\
+	*8000		 26.316000	 0.01984942		 0.00328950		 0.00054514\
+	*16000		 53.162000	 0.02303060		 0.00332263		 0.00047936\
+	*32000		 105.223000	 0.02618127		 0.00328822		 0.00041298\
+\
+	\'b7 Cota subestimada: 	f(n) = n^0.80\
+	\'b7 Cota exacta: 		f(n) = n^1.00 ==> t(n)/(n^1.00) tende a 0.00328\
+	\'b7 Cota sobrestimada:	f(n) = n^1.20\
+\
+	Para o algoritmo de ordenaci\'f3n por inserci\'f3n cando o vector a ordenar presenta inicializaci\'f3n\
+	ascendente a complexidade \'e9 lineal -> O(n)\
+\
+	Odenaci\'f3n por shell con inicializaci\'f3n aleatorio\
+	n		 t(n)		 t(n)/n^1.00		t(n)/n^1.20		t(n)/n^1.40\
+	*500		 52.913000	 0.10582600		 0.03053503		 0.00881058\
+	*1000		 123.188000	 0.12318800		 0.03094343		 0.00777264\
+	*2000		 283.420000	 0.14171000		 0.03098807		 0.00677624\
+	4000		 648.000000	 0.16200000		 0.03083919		 0.00587072\
+	8000		 1487.000000	 0.18587500		 0.03080371		 0.00510487\
+	16000		 3327.000000	 0.20793750		 0.02999914		 0.00432798\
+	32000		 7767.000000	 0.24271875		 0.03048410		 0.00382863\
+\
+	\'b7 Cota subestimada: 	f(n) = n^1.00\
+	\'b7 Cota exacta: 		f(n) = n^1.20 ==> t(n)/(n^1.20) tende a 0.0308\
+	\'b7 Cota sobrestimada:	f(n) = n^1.40\
+\
+	Para o algoritmo de ordenaci\'f3n por shell cando o vector a ordenar presenta inicializaci\'f3n\
+	aleatoria a complexidade \'e9 de orde n^1.2 -> O(n^1.2)\
+\
+	Odenaci\'f3n por shell con inicializaci\'f3n descendente\
+	n		 t(n)		 t(n)/n^0.90		t(n)/n^1.10		t(n)/n^1.30\
+	*500		 24.046000	 0.08953026		 0.02583306		 0.00745387\
+	*1000		 55.186000	 0.11011055		 0.02765852		 0.00694751\
+	*2000		 122.561000	 0.13104646		 0.02865625		 0.00626633\
+	*4000		 270.820000	 0.15517678		 0.02954029		 0.00562345\
+	8000		 603.000000	 0.18515537		 0.03068445		 0.00508511\
+	16000		 1298.000000	 0.21358301		 0.03081362		 0.00444548\
+	32000		 2810.000000	 0.24778290		 0.03112013		 0.00390851\
+\
+	\'b7 Cota subestimada: 	f(n) = n^0.90\
+	\'b7 Cota exacta: 		f(n) = n^1.10 ==> t(n)/(n^1.10) tende a 0.0306\
+	\'b7 Cota sobrestimada:	f(n) = n^1.30\
+\
+	Para o algoritmo de ordenaci\'f3n por shell cando o vector a ordenar presenta inicializaci\'f3n\
+	descendente a complexidade \'e9 de orde n^1.2 -> O(n^1.1)\
+\
+	Odenaci\'f3n por shell con inicializaci\'f3n ascendente\
+	n		 t(n)		 t(n)/n^0.95		t(n)/n^1.11		t(n)/n^1.30\
+	*500		 16.098000	 0.04392891		 0.01625231		 0.00499012\
+	*1000		 37.047000	 0.05233028		 0.01732818		 0.00466394\
+	*2000		 84.591000	 0.06185085		 0.01833078		 0.00432499\
+	*4000		 185.603000	 0.07024704		 0.01863367		 0.00385396\
+	*8000		 404.204000	 0.07918905		 0.01880056		 0.00340866\
+	16000		 892.000000	 0.09045881		 0.01922169		 0.00305498\
+	32000		 1960.000000	 0.10288773		 0.01956769		 0.00272622\
+\
+	\'b7 Cota subestimada: 	f(n) = n^0.95\
+	\'b7 Cota exacta: 		f(n) = n^1.11 ==> t(n)/(n^1.11) tende a 0.0192\
+	\'b7 Cota sobrestimada:	f(n) = n^1.30\
+\
+	Para o algoritmo de ordenaci\'f3n por shell cando o vector a ordenar presenta inicializaci\'f3n\
+	ascendente a complexidade \'e9 de orde n^1.1 -> O(n^1.1)\
+\
+	Cabe destacar que na maior\'eda dos casos hai execuci\'f3ns nas que os valores obtidos se desv\'edan\
+	do esperado, polo que non temos en conta eses datos. Isto pode ocorrer por m\'faltiples motivos,\
+	sendo un deles que a m\'e1quina nas primeiras execuci\'f3ns non utiliza toda a s\'faa potencia.\
+\
+\
+- M\'c1QUINA\
+\
+	\'b7MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports) \
+	\'b7Procesador 2,3 GHz Intel Core i5 \
+	\'b7Memoria 8 GB 2133 MHz LPDDR3 \
+	\
+\
+- CONCLUSI\'d3NS\
+\
+	Posto que son varias as casu\'edsticas, imos analizar as conclusi\'f3ns de maneira global e despois\
+	entraremos en detalle.\
+\
+	En xeral, vemos que a ordenaci\'f3n por inserci\'f3n \'e9 m\'e1is lenta que a shell, xa que o tempo de\
+	execuci\'f3n da ordenaci\'f3n por inserci\'f3n se dispara moito m\'e1is r\'e1pido que o da shell. Isto corro-\
+	b\'f3rase coas cotas exactas obtidas, sendo inserci\'f3n da orde de n^2 e shell da orde de n^1.X.\
+\
+	Non obstante, hai un caso onde a ordenaci\'f3n por inserci\'f3n \'e9 m\'e1is r\'e1pida que a shell: cando o\
+	vector inicial desordenado presenta ordenaci\'f3n ascendente (\'e9 dicir, xa est\'e1 ordenado como que-\
+	remos). Nese caso a ordenaci\'f3n por inserci\'f3n \'e9 li\'f1al, mentres que a shell presenta un tempo de\
+	orde n^1.11.\
+\
+	Por tanto, unindo todo isto, conclu\'edmos que: a ordenaci\'f3n por shell presenta tempos menores\
+	posto que sempre son da orde de n^1.X, a excepci\'f3n de que o vector a ordenar xa estea ordena-\
+	do ascendetemente. Nese caso \'e9 preferible a ordenaci\'f3n por inserci\'f3n, que toma tempo n.\
+}
